@@ -1,0 +1,637 @@
+
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.118.2">
+  <title>Sorteador</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/jumbotrons/">
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+
+  <meta name="theme-color" content="#712cf9">
+  <!--
+  <script>
+
+    function activateModal() {
+      $('#myModal').on('shown.bs.modal', function () {
+        $('#myModal').trigger('focus')
+      })
+    }
+
+  </script>
+-->
+
+
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      width: 100%;
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .btn-bd-primary {
+      --bd-violet-bg: #712cf9;
+      --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+      --bs-btn-font-weight: 600;
+      --bs-btn-color: var(--bs-white);
+      --bs-btn-bg: var(--bd-violet-bg);
+      --bs-btn-border-color: var(--bd-violet-bg);
+      --bs-btn-hover-color: var(--bs-white);
+      --bs-btn-hover-bg: #6528e0;
+      --bs-btn-hover-border-color: #6528e0;
+      --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+      --bs-btn-active-color: var(--bs-btn-hover-color);
+      --bs-btn-active-bg: #5a23c8;
+      --bs-btn-active-border-color: #5a23c8;
+    }
+
+    .bd-mode-toggle {
+      z-index: 1500;
+    }
+
+    .bd-mode-toggle .dropdown-menu .active .bi {
+      display: block !important;
+    }
+
+    .text-body-emphasis {
+      font-size: 120px;
+    }
+
+    .text-body-emphasis-h3 {
+      font-size: 60px;
+    }
+
+    .text-body-emphasis-h6 {
+      font-size: 18px;
+      font-stretch: normal;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="bootstrap" viewBox="0 0 118 94">
+      <title>Sorteador</title>
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z">
+      </path>
+    </symbol>
+    <symbol id="arrow-right-short" viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+    </symbol>
+    <symbol id="check2-circle" viewBox="0 0 16 16">
+      <path
+        d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
+      <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
+    </symbol>
+  </svg>
+
+  <div class="container">
+    <div class="p-5 text-center ">
+      <img class="bi mt-4 mb-3" style="color: var(--bs-indigo);" src="logitopo.png" width="50%" height="50%">
+      <use xlink:href="#bootstrap" /></img>
+      <div class="row">
+        &nbsp;
+      </div>
+      <h1 class="text-body-emphasis" id="nomeSorteado"></h1>
+      <h3 class="text-body-emphasis-h3" id="unidadeSorteado"><b></b></h3>
+      <div class="row">
+        &nbsp;
+      </div>
+      <div class="row">
+        &nbsp;
+      </div>
+
+      <!--<p class="col-lg-8 mx-auto fs-5 text-muted">
+        teste
+      </p>-->
+      <div class="d-inline-flex gap-2 mb-5">
+        <button class="btn btn-outline-secondary btn-lg px-4 rounded-pill" onclick="ultimoSorteado();" type="button">
+          Visualizar último sorteado
+        </button>
+        <button class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill" type="button"
+          data-toggle="modal" data-target="#myModal" onclick="startCountdown(3, 1000);">
+          Sortear Próximo
+          <svg class="bi ms-2" width="24" height="24">
+            <use xlink:href="#arrow-right-short" />
+          </svg>
+        </button>
+
+      </div>
+
+    </div>
+    <h6 class="align-self-end" id="qtdSorteados"></h6>
+  </div>
+
+
+
+
+
+
+  <script>
+    // Lista de nomes
+    var nomes = ["ADRIANA BASTOS ",
+      "ADRIANA LIMA LAUXEN ",
+      "ADRIANA LOPES DOS SANTOS ",
+      "ADRIANA MARQUES ",
+      "ADRIANA TERESINHA GAFFREE NUNES ",
+      "ADRIEL MULLER ",
+      "ADRIELE ALMEIDA DA SILVA ",
+      "ALAN WILLIAN DA SILVA GIL ",
+      "ALEX ELLWANGER PEREIRA ",
+      "ALEXANDRE DA SILVA CORREA DE LIMA ",
+      "ALINE LUIZA ANDRIOLLO ",
+      "ALINE VALIATI ",
+      "AMANDA DERENGOSKI ",
+      "AMANDA RAFAELA MARMETT ",
+      "AMANDA TAIS PREZZI AMARO ",
+      "ANA CAROLINA MUNDSTOCK BERTOLDI ",
+      "ANA CAROLINE DA SILVA ALVES ",
+      "ANA CAROLINE DIAS MELLO ",
+      "ANA CLARA BECKER ",
+      "ANA CLARA GUILHERMANO ROCHA ",
+      "ANA CLARA RITZEL ",
+      "ANA CLARA ROSSINI TONIETTO ",
+      "ANA LAURA MACHADO MARTINS FURTADO ",
+      "ANA LUISA PILAR ",
+      "ANA LUIZA BENDER ",
+      "ANA PAULA APPELT ",
+      "ANA PAULA BARRETO BOHRER ",
+      "ANALICE VITORIA MAX OLDOLF SCHMIDT ",
+      "ANDREIA REGINA VANONI CARDOSO ",
+      "ANDRESSA DE RÉ ",
+      "ANDRIELE DE SOUZA PIRES ",
+      "ANGELA ADRIANA REICHERT ",
+      "ANGELICA MAAS ",
+      "BEATRIZ HASENACK ",
+      "BIANCA DA SILVA BOFF ",
+      "BIANCA EDUARDA FABIANE ",
+      "BRENDA PAIVA ",
+      "BRUNO RODRIGO BARTH ",
+      "CAMILA GABRIELA BARTH KRAEMER ",
+      "CAMILA LAHM ZACARIAS ",
+      "CAMILA MILENA PERES ",
+      "CAMILA MOREIRA ",
+      "CAMILA PRISCILA GEORGI ",
+      "CAMILLY VITORIA SOARES RODRIGUES ",
+      "CARINE DILL ",
+      "CARLA MATOS FURTADO ",
+      "CAROLINA GIL FELTES ",
+      "CASSIA ROBERTA SCHMITT GRIN ",
+      "CASSIANE DOMINGUES SOUTO ",
+      "CASSIANE FONTES ",
+      "CATIANE DAIANE DOS SANTOS ",
+      "CINTIA FRANCIELI DOS SANTOS ",
+      "CLACI MARIA DIETER ",
+      "CLARINÊS COSTANTIN ",
+      "CLAUDIA POHLMANN ",
+      "CLEIDE MARIA REDIN ",
+      "DACIANE EDINGER ",
+      "DAIANE PAULA BELUSSO GAMBIN ",
+      "DAIANE RADTKE ",
+      "DANIEL TORMES DA SILVA ",
+      "DANIEL UCHOA AZEVEDO ",
+      "DANIELA DE OLIVEIRA FONTES ",
+      "DANIELLA RAIZA PETRY CASTILHOS ",
+      "DANUSA DE BORBA ",
+      "DARCY ARDY GEIS JÚNIOR ",
+      "DÉBORA CHARLOTTE ABELING DA SILVA ",
+      "DEBORA VIVIANE MOLLER ",
+      "DEISE DA SILVA ",
+      "DOUGLAS ADAM ",
+      "EDIMARA KREIN ",
+      "EDUARDA CUNHA QUEVEDO ",
+      "EDUARDA LAUCK MORAES ",
+      "EDUARDA MARQUES DE BRITO ",
+      "ELEN KARINA BLOSS ",
+      "ELIAS DA ROSA HOFFMANN ",
+      "ELIS LITEA LOFFLER DO NASCIMENTO ",
+      "ELIZANDRA ELIZABETE SIEROTA ",
+      "EMILE LAURIE BORBA DE OLIVEIRA ",
+      "EMILY FRANCIELE DA COSTA ",
+      "ERICA RAFAELA DE OLIVEIRA EV ",
+     "ERICA SANTOS ",
+      "ESTELA MARA DA SILVA E SILVA ESTULANO ",
+      "FÁBIA CRISTINA TEIXEIRA DOS SANTOS ",
+      "FERNANDA MARCIELE PEDROSO ",
+      "FILIPE HIGINIO GIL KNOBLOCH ",
+      "FRANCIELE CAROLINE ADAM ",
+      "GABRIEL EDUARDO FLECK ",
+      "GABRIELA CORNELY ",
+      "GABRIELA GAFFREÉ KOLLING ",
+      "GABRIELI NOVAES BECKER ",
+      "GABRIELY DALLAZEN DA CONCEICAO ",
+      "GEISI CAMILA DA ROSA PEREIRA ",
+      "GEISIELI PADILHA DOS SANTOS ",
+      "GISIELE DA SILVA SCHUH ",
+      "GLENDA FABIANE FONTINELES DE SOUZA ",
+      "GRAZIELA BRESCOVIT DO NASCIMENTO ",
+      "GREISON ROHR ",
+      "GUSTAVO SCHAEFER ",
+      "GUSTAVO SCHWERTZ DE OLIVEIRA ",
+      "HELEN AMANDA CARVALHO ",
+      "INGRID SOARES DE SOUZA ",
+      "ISAAC MARIANO DA ROSA ",
+      "ISABEL DA SILVA RODRIGUES ",
+      "ISADORA DA ROSA MOLLER ",
+      "IVANISE MARLEDE SCHONARDIE ",
+      "JAQUELINE DA SILVA CAVALLIN ",
+      "JAQUELINE EDUARDA DA SILVA ADAMS ",
+      "JESSICA CAMARGO DE SOUZA ",
+      "JÉSSICA FERNANDA PINHEIRO VERDI ",
+      "JOCIANE SILVA DOS SANTOS GOMES ",
+      "JORGE R. V. MELLO ",
+      "JOSEANE RODRIGUES DO NASCIMENTO ",
+      "JULIA BARBOZA REIS ",
+      "JULIA CAROLINE MAIA DE FARIAS ",
+      "JULIA HADASSA ZUCCO ",
+      "JULIANA MORAES TRISCH ",
+      "JUSARA CLAUDIA LANZ ",
+      "KAREN CRISTINA HUFF RENZ ",
+      "KARINA SILVA CASAGRANDE ",
+      "KATHLEEN HERMINIA MENDES KIRSCH ",
+      "KAUANY VAZ DOS SANTOS ",
+      "KAYLANE DIAS ",
+      "KELI NUNES ",
+      "LARISSA HEITELVAN ",
+      "LAURA DA SILVA WATTE ",
+      "LAURA MACHADO SCHVARSTZHAUPT ",
+      "LIDIANE CLAUDENICE VINHALSKI DOS SANTOS ",
+      "LUANA SANTOS DA SILVA ",
+      "LUANA SEIDEL DE OLIVEIRA ",
+      "LUCIANA PEIXOTO DA SILVA ",
+      "MANUELA BERTOLDI ",
+      "MARCIA DE OLIVEIRA ",
+      "MARCIO ALEXANDRE RIGO JUNIOR ",
+      "MARIA EDUARDA HEIDRICH ",
+      "MARIA REGINA DE PELLEGRIN ",
+      "MARIA ROSILENE DE OLIVEIRA ANDRADE ",
+      "MARIA SCHNEIDERS ",
+      "MARIANA DOS SANTOS DE LIMA ",
+      "MARIANA VALANDRO DA SILVA ",
+      "MARIANE NATHALIA RIBEIRO GONÇALVES ",
+      "MARIANE RODRIGUES DE SOUZA GROFF ",
+      "MARILIA DE OLIVEIRA ",
+      "MARTA GABRIELI DA SILVA MUNHOZ ",
+      "MELISSA WAGNER PRESTES ",
+      "MERIAN AMANDA ROOS TEODORO ",
+      "MICHELE ALINE BRAUN VEDOI ",
+      "MICHELE SCHROER FERREIRA ",
+      "MICHELE SIQUEIRA ",
+      "MONICA CANOVA ",
+      "MONIQUE LUDWIG ",
+      "NATALIA CAMILI BELINSKI HAAG ",
+      "NATHALIA VANONI CARDOSO ",
+      "NATHALY DA SILVA TRINDADE ",
+      "NEUSA TRINDADE ",
+      "PAMELA DE OLIVEIRA PELINTIR SOARES ",
+      "PAMELA MOTA DA SILVA ",
+      "PAOLA RAFAELA LEMES ",
+      "PATRICIA DE OLIVEIRA ",
+      "PATRICIA JOVITA DA SILVA ",
+      "POLYANA RENATA DE BORBA ",
+      "PRISCILA AZEREDO ANTUNES ",
+      "PRISCILA AZEVEDO ANTUNES ",
+      "RAFAEL FERNANDO FELLER ",
+      "RAFAELA DE LEÃO ",
+      "RAFAELA WALLAUER ",
+      "RAISSA GABRIELLE VOSS ",
+      "RAQUEL EMMA RHEINHEIMER ",
+      "REBECA RAYANE PETRY CASTILHOS ",
+      "REJANE NAIR BACK ",
+      "RENATA BRENTANO ",
+      "ROBERTA CAROLINE MARTINS ",
+      "ROSA ANGELA MAIA NANTAL ",
+      "ROSELEI MARIA GRAF ",
+      "SABRINA LUANA MARMETT ",
+      "SAMARA KUNST ",
+      "SANDRA FAGUNDES DOS SANTOS ",
+      "SCHEILA CAROLINE KOHLRAUSCH ",
+      "SIMONE JULIANA VICENTE ",
+      "SUSYELEN DE OLIVEIRA ",
+      "TAINA RAFAELA DA SILVA PETRY ",
+      "TAINARA CRISTINA BOTKER ",
+      "TAINARA MOREIRA ",
+      "TAMIRIS LIMA VOLKART ",
+      "TATIANA RAMM DOS SANTOS ",
+      "TATIANE MARINES DREIFKE ",
+      "TAUANI ALICE FACCIN DE OLIVEIRA ",
+      "THAMI DANIELE DIAS RODOLFO ",
+      "VANEA CRISTINE FELLER ",
+      "VITOR HUGO FOGAÇA FAGUNDES ",
+      "VITORIA LORENA DA SILVA ",
+      "VIVIAN VALENTINI ",
+      "YASMIN DA SILVA OLIVEIRA "];
+
+    var unidades = ["Local 1",
+      "Local 20",
+      "Local 1",
+      "Local 50",
+      "Local 19",
+      "Local 1",
+      "Local 20",
+      "Local 1",
+      "Local 21",
+      "Local 1",
+      "Local 3",
+      "Local 28",
+      "Local 1",
+      "Local 1",
+      "Local 28",
+      "Local 34",
+      "Local 5",
+      "Local 1",
+      "Local 5",
+      "Local 3",
+      "Local 1",
+      "Local 10",
+      "Local 10",
+      "Local 1",
+      "Local 28",
+      "Local 23",
+      "Local 06",
+      "Local 10",
+      "Local 20",
+      "Local 20",
+      "Local 05",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local ",
+      "Local "];
+
+
+    var nomesSorteados = [];
+    var qtdSorteados = 0;
+
+    function sortearNome() {
+
+      if (nomes.length > 0) {
+
+        var indiceSorteado = Math.floor(Math.random() * nomes.length);
+
+        var unidadeSorteado = unidades.splice(indiceSorteado, 1)[0];
+        var nomeSorteado = nomes.splice(indiceSorteado, 1)[0];
+        qtdSorteados++;
+
+        nomesSorteados.push(nomeSorteado);
+
+        document.getElementById('nomeSorteado').textContent = nomeSorteado;
+        document.getElementById('unidadeSorteado').textContent = unidadeSorteado;
+        document.getElementById('qtdSorteados').textContent = qtdSorteados;
+        console.log(nomeSorteado);
+      } else {
+
+        document.getElementById('nomeSorteado').textContent = "Todos os nomes foram sorteados!";
+      }
+    }
+
+    function ultimoSorteado() {
+      alert(nomesSorteados[nomesSorteados.length - 2]);
+    }
+
+    function startCountdown(duration, updateInterval) {
+      let count = duration;
+
+      function updateDisplay() {
+        var paragraphElement = document.getElementById("nomeSorteado");
+        paragraphElement.innerText = count;
+
+        var paragraphElement2 = document.getElementById("unidadeSorteado");
+        paragraphElement2.innerText = "";
+
+        var qtdSorteados = document.getElementById("qtdSorteados");
+        qtdSorteados.innerText = "";
+      }
+
+      function countdown() {
+        updateDisplay();
+
+        if (count <= 0) {
+          sortearNome();
+          clearInterval(countdownInterval);
+        } else {
+          count--;
+        }
+      }
+
+      updateDisplay();
+      const countdownInterval = setInterval(countdown, updateInterval);
+    }
+
+
+
+
+  </script>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
